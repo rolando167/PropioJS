@@ -1,0 +1,60 @@
+<html>
+<body>
+	<label>Problemas a resolucion - Entrevista</label>
+	<hr/>
+	<div style="border: 1px solid #ddd;">
+		<label>A = [3, 2, 0, 1]</label>, <label>S = 'sdeo'</label>
+		<br/><br/><br/>
+		Respuesta: <label id="res1"> </label>
+	</div>
+
+</body>
+</html>
+<script>
+
+	function solve(A, S){
+		let position = 0;
+		let respuesta = '';
+
+		for(let i=0; i< A.length; i++){
+
+			respuesta += S[position];
+			position = A[position]
+		}
+		return (respuesta);
+	}
+
+	document.getElementById('res1').innerHTML=solve([3,2,0,1], 'cdeo');
+
+
+	// EJERCICIO 2 -->
+	// Contar la cantidad de palabras que pueden existir en una cadena.
+
+	var cadena = 'Peru tiene mas de 24 departamentos, cada departamento tiene sus propios climas segun la estacion del año en la que se encuentra. De Peru es un gran pais para visitar y conocer MAS. Hazlo ya! ';
+
+
+	function normalize(palabra){
+		return palabra.toLowerCase().replace(/[,.!]/g, '');
+	}
+
+	function contarPalabras() {
+		let arrayCadena = cadena.split(' ');
+
+		let arrayContador = {};
+
+		for(const palabra in arrayCadena){
+			console.log(`indice es ${palabra} : ${arrayCadena[palabra]}`);
+			// 
+			let nombre = normalize(arrayCadena[palabra]);
+
+			if(nombre in arrayContador){
+				++arrayContador[nombre];
+			}else{
+				arrayContador[nombre] = 1;
+			}
+		}
+		console.log(arrayContador);
+		return 1;
+	}
+
+</script>

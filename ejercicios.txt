@@ -1,0 +1,16 @@
+
+Practica de algoritmos:
+
+---------------------
+
+1.- Mostrar los primeros N números primos.
+
+2.- Mostrar solo números impares de un array y ordenarlos ascendentemente
+
+3.- Mostrar número de apariciones en cada palabra.
+
+4.-invertir un array
+
+5.- Quitar los elementos repetidos de un array.
+
+---------------------

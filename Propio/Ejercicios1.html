@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document 🗄️</title>
+</head>
+<body style="background-color: #ddd">
+	
+</body>
+<script>
+	// Invertir el siguiente array
+	let arrayData = [4,8,17,60,1,9,80,67,6,24];
+
+
+
+	//Primera forma
+	const ordenarArray = () =>{
+
+		for(let indice in arrayData){
+
+			for(let indiceSecundario = 0; indiceSecundario< arrayData.length; indiceSecundario++){
+
+			//for(let indiceSecundario in arrayData ){
+				if(arrayData[parseInt(indiceSecundario) + 1] < arrayData[indiceSecundario]   ){
+					let temporal = arrayData[parseInt(indiceSecundario)+1];
+					arrayData[parseInt(indiceSecundario+1)] = arrayData[indiceSecundario];
+					arrayData[indiceSecundario] = temporal;
+					//console.log(arrayData);
+				}
+			}
+			document.write(`${indice} ▶️  [${arrayData.toString()}] `);
+			document.write('<br/>');
+		}
+		document.write(`<br/> Respuesta 👉 [${arrayData.toString()}] <hr/>`);
+	}
+
+	// 📊 Segunda forma : Recursividad
+	const arrayMetodo2 = [5,70,24,61,3,70,35,50,7];
+
+	const ordenarArray2 = (arrayDatos, cantidad) => {
+
+		if(cantidad == 1){
+			document.write(`<br/> Respuesta 👉 [${arrayDatos.toString()}] <hr/>`);
+			return;
+		}
+		//----------------
+		for(let indice = 0; indice<cantidad-1; indice++){
+			if(arrayDatos[indice+1] < arrayDatos[indice]){
+				// se hace el swap(intercambio) usando un temporal
+				//let temporal = arrayDatos[indice+1];
+				//arrayDatos[indice+1] =  arrayDatos[indice];
+				//arrayDatos[indice] = temporal;
+
+				[arrayDatos[indice+1], arrayDatos[indice]] =  [arrayDatos[indice], arrayDatos[indice+1]];
+			}
+		}
+
+		ordenarArray2(arrayDatos, (cantidad-1));
+	}
+
+	
+	// Tercera Forma: metodo seleccion
+	const arrayMetodo3 = [24,14,4,61,9,55,35,30,82];
+
+	function ordenarArray3(arrayDatos, cantidad){
+		// selecciona el mínimo valor y lo intermcabia con la primer posicion del array (segun)
+		for(let indicePrimario=0; indicePrimario<cantidad-1; indicePrimario++ ){
+			let menor = indicePrimario;
+			for(let indiceSecundario=(indicePrimario+1); indiceSecundario<cantidad ; indiceSecundario++){
+				if(arrayDatos[indiceSecundario] < arrayDatos[menor]){
+					//console.log(`${arrayDatos[indiceSecundario]} < ${ arrayDatos[menor]}`);
+					menor = indiceSecundario;
+				}
+			}
+			[arrayDatos[menor], arrayDatos[indicePrimario]] = [arrayDatos[indicePrimario], arrayDatos[menor]];
+		}
+		document.write(`<br/> Respuesta 👉 [${arrayDatos.toString()}] <hr/>`);
+
+	}
+
+
+	// ----------------
+	document.write(`Metodo 1 burbuja: Ordenar el siguiente array: [${arrayData.toString()}]`);
+	document.write('<hr/>');
+	ordenarArray();
+	// ----------------
+	document.write(`Metodo 2 Recursividad: Ordenar el siguiente array: [${arrayMetodo2.toString()}]`);
+	ordenarArray2(arrayMetodo2, arrayMetodo2.length);
+	// ----------------
+	document.write(`Metodo 3 Seleccion: Ordenar el siguiente array: [${arrayMetodo3.toString()}]`);
+	ordenarArray3(arrayMetodo3, arrayMetodo3.length);
+	// ----------------
+
+</script>
+</html>
